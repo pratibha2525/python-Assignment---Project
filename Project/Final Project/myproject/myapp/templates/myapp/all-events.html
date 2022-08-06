@@ -1,0 +1,67 @@
+﻿{% extends 'myapp/member-index.html'  %}    
+{% load static %}
+
+{% block mycss %}
+    <link rel="stylesheet" href="{% static 'myapp\assets\css\blog.css' %}">
+{% endblock %}
+{% block content %}      
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Detail <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                                                            <li class="breadcrumb-item">Blog</li>
+                                                                                        <li class="breadcrumb-item active">Detail</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+    {% for n in eall %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card single_post">
+                    <div class="body">
+                        <h3 class="m-t-0 m-b-5"><a href="blog-details.html">{{n.title}}</a></h3>
+                        <ul class="meta">
+                            <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: {{n.user_id.role}}</a></li>
+                            <li><a href="#"><i class="zmdi zmdi-alarm col-purple"></i>{{n.whenpublished}}</a></li>
+                            <li><a href="#"><i class="zmdi zmdi-eye col-blue"></i>Views: 0</a></li>
+                        </ul>
+                    </div>                    
+                    <div class="body">
+                        <!-- <img src="{{n.pic.url}}" width=200px alt=""> -->
+                        {% if n.pic %}
+                            <img src={{n.pic.url}} alt="notice" width="224" height="224">
+                        {% endif %}
+                        {% if n.video %}
+                        <video width="320" height="240" controls>
+                            <source src={{n.video.url}} type="video/mp4/gif">
+                        </video>
+                        {% endif %}
+                        <p>{{n.venue}}</p>
+                        <p>{{n.Date}}</p>
+                        <p>{{n.Time}}</p>
+                        <p>{{n.content}}</p>
+                        <a href="blog-details.html" title="read more" class="btn btn-round btn-info">Read More</a>                        
+                    </div>
+                </div>
+            
+            </div>
+            
+        </div>
+    {% endfor %}
+    
+</div>
+            </div>
+        </section>
+{% endblock %}
+                

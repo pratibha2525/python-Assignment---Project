@@ -1,0 +1,78 @@
+﻿{% extends 'myapp/index.html' %}
+{% load static %}
+
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>All Members <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                    
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                        <li class="breadcrumb-item">Members</li>
+                        <li class="breadcrumb-item active">All Members</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card patients-list">
+                <div class="header">
+                    <h2><strong>Members</strong> List</h2>
+                    <ul class="header-dropdown">
+                        
+                    </ul>
+                </div>
+                <div class="body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs padding-0">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#All">All</a></li>
+                    </ul>
+                        
+                    <!-- Tab panes -->
+                    <div class="tab-content m-t-10">
+                        <div class="tab-pane table-responsive active" id="All">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>                                       
+                                        <th>pic</th>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>contact</th>
+
+                                        <th>Flat-No</th>
+                                        
+                                        <th>about_member</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for m in mall %}
+                                    <tr>
+                                        <td><span class="list-icon"><img class="patients-img" src="{{m.pic.url}}" alt=""></span></td>
+                                        <td><span class="list-name">{{m.firstname}}</span></td>
+                                        <td>{{m.lastname}}</td>
+                                        <td>{{m.contact}}</td>
+                                        
+                                        <td>House No. {{m.house_no}} & Block No. {{m.block_no}}</td>
+                                        <td>{{m.about_member}}</td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+{% endblock %}

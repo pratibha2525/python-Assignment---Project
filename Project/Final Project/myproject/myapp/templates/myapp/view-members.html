@@ -1,0 +1,75 @@
+{% extends 'myapp/member-index.html'  %}    
+
+{% block content %}
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>A Fancy Table</h1>
+
+  <table id="customers" align="right">
+  <tr>
+    <th >Firstname</th>
+    <th >Lastname</th>
+    <th >work</th>
+    <th >family_members</th>
+    <th >block_no</th>
+    <th >house_no</th>
+    <th >vehicle</th>
+    <th >contact</th>
+    <th >email</th>
+    <th >about_member</th>
+  </tr>
+
+
+{% for i in mall %}
+  <tr>
+
+    <td>{{i.firstname}}</td>
+    <td>{{i.lastname}}</td>
+    <td>{{i.work}}</td>
+    <td>{{i.family_members}}</td>
+    <td>{{i.block_no}}</td>
+    <td>{{i.house_no}}</td>
+    <td>{{i.vehicle}}</td>
+    <td>{{i.contact}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.about_member}}</td>
+    
+    
+  </tr>
+{% endfor %}
+
+  </table>
+
+
+
+</body>
+</html>
+{% endblock %}
+

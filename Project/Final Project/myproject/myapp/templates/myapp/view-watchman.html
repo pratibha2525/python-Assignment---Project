@@ -1,0 +1,70 @@
+{% extends 'myapp/index.html'  %}    
+
+{% block content %}
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>A Fancy Table</h1>
+
+  <table id="customers" align="center">
+  <tr>
+    <th >email</th>
+    <th >Firstname</th>
+    <th >Lastname</th>
+    <th >pic</th>
+    
+    <th >contact</th>
+    
+    <th >address</th>
+  </tr>
+
+
+{% for i in wall %}
+  <tr>
+    <td>{{i.email}}</td>
+    <td>{{i.firstname}}</td>
+    <td>{{i.lastname}}</td>
+    <td>{{i.pic}}</td>
+    
+    <td>{{i.contact}}</td>
+    
+    <td>{{i.address}}</td>
+    
+    
+  </tr>
+{% endfor %}
+
+  </table>
+
+
+
+</body>
+</html>
+{% endblock %}
+

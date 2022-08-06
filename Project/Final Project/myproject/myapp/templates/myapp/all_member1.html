@@ -1,0 +1,126 @@
+﻿{% extends 'myapp/index.html' %}
+{% load static %}
+
+{% block content %}
+       
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>All Member <small class="text-muted">Welcome to Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                                                    <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-plus"></i>
+                            </button>
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                                                            <li class="breadcrumb-item">Patients</li>
+                                                                                        <li class="breadcrumb-item active">All Patients</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card patients-list">
+                <div class="header">
+                    <h2><strong>Member</strong> List</h2>
+                    <ul class="header-dropdown">
+                        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else</a></li>
+                            </ul>
+                        </li>
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <!-- Nav tabs -->
+                   
+                        
+                    <!-- Tab panes -->
+                    <div class="tab-content m-t-10">
+                        <div class="tab-pane table-responsive active" id="All">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>                                       
+                                        <th>Pic</th>
+                                        <th>user_id</th>
+                                        <th>Firstname</th>
+                                        <th>Email</th>
+                                        <th>HouseNo</th>
+                                        <th>Contact</th>
+                                        <th>BlockNo</th>
+                                        <th>FamilyMember</th>
+                                        <th>OfficeAdd</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for m in mall %}
+                                    <tr>
+                                        <td><span class="list-icon"><img class="patients-img" src="" alt="">{{m.pic}}</span></td>
+                                        <td><span class="list-name">{{m.user_id}}</span></td>
+                                        <td>{{m.firstname}}</td>
+                                        <td>{{m.email}}</td>
+                                        <td>{{m.houseno}}</td>
+                                        <td>{{m.contact}}</td>
+                                        <td>{{m.blockno}}</td>
+                                        <td>{{m.familymember}}</td>
+                                        <td>{{m.officeadd}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>                            
+                        </div>
+                        <div class="tab-pane table-responsive" id="USA">
+                            <table class="table m-b-0 table-hover">
+                                <thead>
+                                    <tr>                                       
+                                        <th>Media</th>
+                                        <th>Patients ID</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Address</th>
+                                        <th>Number</th>
+                                        <th>Last Visit</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for m in mall %}
+                                    <tr>
+                                        <td><span class="list-icon"><img class="patients-img" src="" alt=""></span></td>
+                                        <td><span class="list-name">{{m.user_id}}</span></td>
+                                        <td>{{m.firstname}}</td>
+                                        <td>32</td>
+                                        <td>71 Pilgrim Avenue Chevy Chase, MD 20815</td>
+                                        <td>404-447-6013</td>
+                                        <td>11 Jan 2018</td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </section>
+
+{% endblock %}
+                
